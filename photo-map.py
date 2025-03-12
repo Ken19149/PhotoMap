@@ -38,14 +38,21 @@ def image_coordinates(image_path):
         return (img.datetime_original, coords[0], coords[1], str(image_path).split("\\")[-1])
         # return({"imageTakenTime":img.datetime_original, "geolocation_lat":coords[0],"geolocation_lng":coords[1]})
     except:
-        return ("0000:00:00 00:00:00", 0, 0, "name")
+        pass
+        # return ("0000:00:00 00:00:00", 0, 0, "name")
         # return({"imageTakenTime":"0000:00:00 00:00:00", "geolocation_lat":0,"geolocation_lng":0})
 
 for i in os.listdir(path):
-    data.append(image_coordinates(path + i))
+    try: 
+        data.append(image_coordinates(path + i))
+    except: 
+        pass
 
 for i in data:
-    folium.CircleMarker(location=[i[1], i[2]],radius=15,weight=5, opacity=1, fill_opacity=0.6, fill=True, tooltip=str(i[0] + " : " + i[3])).add_to(map)
+    try: 
+        folium.CircleMarker(location=[i[1], i[2]],radius=15,weight=5, opacity=1, fill_opacity=0.6, fill=True, tooltip=str(i[0] + " : " + i[3])).add_to(map)
+    except:
+        pass
 
 
 #Set the zoom to the maximum possible
