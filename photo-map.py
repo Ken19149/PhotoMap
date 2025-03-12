@@ -50,7 +50,8 @@ for i in os.listdir(path):
 
 for i in data:
     try: 
-        folium.CircleMarker(location=[i[1], i[2]],radius=15,weight=5, opacity=1, fill_opacity=0.6, fill=True, tooltip=str(i[0] + " : " + i[3])).add_to(map)
+        popup = "<div><img src=\"" + (path + "\\" +i[3]) + "\" alt=\"" + i[3] + "\" width=\"230\" height=\"172\"><br /><span>" + i[3] + "</span></div>"
+        folium.CircleMarker(location=[i[1], i[2]],radius=15,weight=5, opacity=1, fill_opacity=0.6, fill=True, popup=popup, tooltip=str(i[0] + " : " + i[3])).add_to(map)
     except:
         pass
 
