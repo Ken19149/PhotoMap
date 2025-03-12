@@ -38,7 +38,7 @@ def image_coordinates(image_path):
 # image_coordinates('Your image path')
 
 for i in data:
-    folium.CircleMarker(location=[i[1], i[2]],radius=2,weight=5, opacity=1, fill_opacity=0.6, fill=True, tooltip=i[0]).add_to(map)
+    folium.CircleMarker(location=[i[1], i[2]],radius=15,weight=5, opacity=1, fill_opacity=0.6, fill=True, tooltip=i[0]).add_to(map)
 
 
 #Set the zoom to the maximum possible
